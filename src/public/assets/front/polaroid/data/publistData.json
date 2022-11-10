@@ -1,0 +1,9 @@
+[
+    { "name": "언어언택", "link": "/polaroid_html/index.html" },
+    { "name": "운영시간 안내", "link": "/polaroid_html/information_time.html" },
+    { "name": "체험안내", "link": "/polaroid_html/polaroid1.html" },
+    { "name": "사진 선택", "link": "/polaroid_html/polaroid2.html" },
+    { "name": "전송", "link": "/polaroid_html/polaroid3.html" },
+    { "name": "완료", "link": "/polaroid_html/polaroid4.html" },
+    { "name": "서비스 이용안내", "link": "/polaroid_html/information_service.html" }
+]

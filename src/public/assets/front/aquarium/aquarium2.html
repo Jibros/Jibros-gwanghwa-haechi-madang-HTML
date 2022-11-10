@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>광화 - 아쿠아리움</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="mobile-web-app-capable" content="yes" />
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<!-- lib : swiper -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<!-- lib : colorpicker -->
+<script src="./lib/iro/iro.min.js"></script>
+<!-- JS -->
+<script src="./js/common.js"></script>
+<!-- CSS -->
+<link href="../common/css/reset.css?v=1" rel="stylesheet" type="text/css">
+<link href="./css/style.css?v=1" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="wrapper border-box">
+        <div class="contents">
+            <div class="inner">
+                <!-- 물고기 만들기 -->
+                <div class="cont__fish">
+                    <div class="comm__tit">
+                        <p class="tx_tit">나만의 물고기 만들기</p>
+                        <p class="tx_msg1">어떤 물고기를 그려볼까요?</p>
+                        <p class="tx_msg2">마음에 드는 물고기를 골라보세요~</p>
+                    </div>
+
+                    <div class="fish__swiper border-box">
+                        <div class="swiper fishSwiper">
+                            <div class="swiper-wrapper">
+                                <!-- <div class="swiper-slide">
+                                    <ul class="fish_list">
+                                        <li class="on" data-set="1"><img src="./images/fishswiper/fish_item1.png" alt="물고기 01"></li>
+                                        <li data-set="2"><img src="./images/fishswiper/fish_item2.png" alt="물고기 02"></li>
+                                        <li data-set="3"><img src="./images/fishswiper/fish_item3.png" alt="물고기 03"></li>
+                                        <li data-set="4"><img src="./images/fishswiper/fish_item4.png" alt="물고기 04"></li>
+                                        <li data-set="5"><img src="./images/fishswiper/fish_item5.png" alt="물고기 05"></li>
+                                        <li data-set="6"><img src="./images/fishswiper/fish_item6.png" alt="물고기 06"></li>
+                                    </ul>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="btn_swiper swiper-button-prev"></div>
+                        <div class="btn_swiper swiper-button-next"></div>
+                    </div>
+
+                    <div class="btn-group">
+                        <a href="#" class="btn_complete">선택완료</a>
+                    </div>
+
+                    <script>
+                        // DOM 생성
+                        function loadSwiperDom(){
+                            const fishLen = 28; // 물고기 갯수
+
+                            let num = 0; // 물고기 인덱스 초기화
+                            let fishHtml = ""; // 물고기 html
+                            for(let i=0; i<fishLen/6; i++){
+                                fishHtml += "<div class='swiper-slide'>";
+                                fishHtml += "   <ul class='fish_list'>";   
+                                for(var j=0; j<6; j++){ 
+                                    if(num < fishLen){
+                                        fishHtml += "  <li data-set='"+num+"'><img src='./images/fishswiper/fish_item"+num+".png' alt='물고기 "+num+"'></li>";
+                                    }                                    
+                                    num++;
+                                }
+                                fishHtml += "   </ul>";
+                                fishHtml += "</div>";    
+                            }
+                            // 스와이퍼 DOM APPEND
+                            $(".fishSwiper .swiper-wrapper").append(fishHtml);
+
+                            // 이벤트 : 물고기 클릭 
+                            const fishItem = ".fish_list > li";
+                            let selFishIndex; // 선택한 물고기 파라미터로 전달
+                            
+                            $("body").on("click", fishItem, function(){
+                                const _this = $(this);
+                                selFishIndex = _this.data("set");
+                                $(fishItem).removeClass("on")
+                                _this.addClass("on");
+                            })
+
+                            // 선택 후 도메인 이동 파라미터 전달
+                            const btnComplete = $(".btn_complete");
+
+                            btnComplete.on("click", function(e){
+                                if(selFishIndex != undefined){
+                                    location.href = "aquarium3.html?selFish="+selFishIndex;
+                                }else{
+                                    selFishIndex = 0;
+                                }
+                                e.preventDefault()
+                            });
+
+                            // 스와이퍼 실행
+                            swiperInit();
+                        }
+
+                        function swiperInit(){
+                            const fishSwiper = new Swiper(".fishSwiper", {
+                                spaceBetween: 0,
+                                loop: true,
+                                navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+                                pagination: { el: ".swiper-pagination", clickable: true },
+                                on: {
+                                    init: function(swipe){
+                                        $(".fish_list li[data-set=0]").addClass("on")
+                                    }
+                                }
+                            })
+                        }
+                        
+                        $(function(){
+                            setTimeout(loadSwiperDom, 0);                            
+                        })                        
+                    </script>
+                </div>
+                <!-- // -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

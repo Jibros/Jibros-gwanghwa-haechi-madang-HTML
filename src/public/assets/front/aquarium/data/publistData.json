@@ -1,0 +1,19 @@
+[
+    { "name": "언어언택", "link": "/aquarium_html/index.html" },
+    { "name": "운영시간 안내", "link": "/aquarium_html/information_time.html" },
+    { "name": "체험안내", "link": "/aquarium_html/aquarium1.html" },
+    { "name": "물고기 선택", "link": "/aquarium_html/aquarium2.html" },
+    { "name": "영역선택", "link": "/aquarium_html/aquarium3.html?selFish=1" },
+    { "name": "전송", "link": "/aquarium_html/aquarium4.html" },
+    { "name": "완료", "link": "/aquarium_html/aquarium5.html" },
+    { "name": "서비스 이용안내", "link": "/aquarium_html/information_service.html" },
+    { "name": "", "link": "" },
+
+    { "name": "운영시간 안내-영문", "link": "/aquarium_html/information_time_eng.html" },
+    { "name": "체험안내-영문", "link": "/aquarium_html/aquarium1_eng.html" },
+    { "name": "물고기 선택-영문", "link": "/aquarium_html/aquarium2_eng.html" },
+    { "name": "영역선택-영문", "link": "/aquarium_html/aquarium3_eng.html?selFish=1" },
+    { "name": "전송-영문", "link": "/aquarium_html/aquarium4_eng.html" },
+    { "name": "완료-영문", "link": "/aquarium_html/aquarium5_eng.html" },
+    { "name": "서비스 이용안내-영문", "link": "/aquarium_html/information_service_eng.html" }
+]

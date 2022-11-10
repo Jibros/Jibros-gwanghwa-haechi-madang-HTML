@@ -1,0 +1,14 @@
+이미지 파일명 네이밍 규칙 
+
+<aside>
+💡 1. 물고기 네이밍 : /fishsvg/fish[1~30].svg
+   2. 물고기 결과 (선택 영역 제거한 svg) : /fishsvg/result/fish[1~30].svg
+
+- ex) fish1.svg, fish2.svg, fish3.svg ~ fish30.svg
+1. 브러쉬 네이밍 : /fishbrush/brush-[물고기번호:1~30]_[브러쉬번호:0~2]_[선택 원 번호 1~n].png
+- ex ) 1번 물고기_물감_1번 원
+    - 물감 : brush-1_0_1.png, brush-1_0_2.png, brush-1_0_3.png, brush-1_0_4.png,
+    - 크래용 : brush-1_1_1.png, brush-1_1_2.png, brush-1_1_3.png, brush-1_1_4.png,
+    - 물감 : brush-1_2_1.png, brush-1_2_2.png, brush-1_2_3.png, brush-1_2_4.png
+- 설명 : 원은 좌측 위부터 1번, 우측 위 2번, 좌측 아래 3, 우측 아래 4 = 지그재그로 번호 부여하시면 됩니다.(좌측위→우측아래 방향)
+</aside>

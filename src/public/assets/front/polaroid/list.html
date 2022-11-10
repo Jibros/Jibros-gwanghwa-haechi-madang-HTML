@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>광화문 해치마당 > 폴라로이드 퍼블 산출물</title>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        main>.container {
+            padding: 100px 15px 0;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">광화문 해치마당 > 폴라로이드 퍼블 산출물</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main class="flex-shrink-0">
+        <div class="container">
+            <table class="table table-striped table-hover">
+                <colgroup>
+                    <col />
+                    <col />
+                    <col />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center">#</th>
+                        <th scope="col">페이지명</th>
+                        <th scope="col">링크</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- <tr>
+                        <th scope="row"></th>
+                        <td>페이지 명</td>
+                        <td><a href="#">링크</a> <i class="bi bi-box-arrow-up-right"></i></td>
+                        <td></td>
+                    </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <script>
+        let rowNum = 1;
+        const tableTr = $(".table tbody")
+        $.each($(".table tbody tr th"), (idx, item) => {
+            $(item).text(rowNum++);
+        })
+
+        const dataUrl = "/polaroid_html/assets/data/publistData.json"
+        fetch(dataUrl)
+            .then((response) => response.json())
+            .then((list) => {        
+                
+                $.each(list, (i, val) => {
+                    let linkTxt = list[i].link.split("/");
+                    let popSt = list[i].pop;
+                    
+                    if(!popSt){
+                        html = `
+                        <tr>
+                            <th scope="row" class="text-center">${i+1}</th>
+                            <td>${list[i].name}</td>
+                            <td><a href="${list[i].link}">/${linkTxt[linkTxt.length-1]}</a> <i class="bi bi-box-arrow-up-right"></i></td>
+                        </tr>
+                        `
+                        tableTr.append(html)
+                    }
+                })
+                
+            }
+        )
+    </script>
+</body>
+
+</html>
